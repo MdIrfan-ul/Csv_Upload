@@ -51,12 +51,12 @@ DB_URI=your_mongodb_connection_string
 npm start
 
 ## Usage
-1.Access the application through `http://localhost:3000`.
-2.Navigate to the upload page to upload a CSV file with validation for file type and size.
-3.Once uploaded, the file will be displayed on the home page.
-4.Click on the file name to view the data in a table format.
-5.Use the search bar to filter the displayed data.
-6.Navigate through pages using the pagination controls to view up to 100 records per page.
+1. Access the application through `http://localhost:3000`.
+2. Navigate to the upload page to upload a CSV file with validation for file type and size.
+3. Once uploaded, the file will be displayed on the home page.
+4. Click on the file name to view the data in a table format.
+5. Use the search bar to filter the displayed data.
+6. Navigate through pages using the pagination controls to view up to 100 records per page.
 
 
 ## ConnectMe 
