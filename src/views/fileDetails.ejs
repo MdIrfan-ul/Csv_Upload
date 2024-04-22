@@ -1,0 +1,125 @@
+<section>
+    <div class="container mt-3">
+      <form class="d-flex" role="search" id="searchForm">
+        <input class="form-control me-3" type="search" placeholder="Search" id="searchInput" aria-label="Search">
+        <button class="btn btn-outline-success" type="submit">Search</button>
+        <span class="ps-2">Total Rows: <%= file.data.length %></span>
+    </form>
+    </div>
+
+      <h2 class="text-center mb-4">File Details - <%= file.name %></h2>
+      <div class="table-responsive m-4">
+          <table class="table table-hover table-dark">
+              <thead>
+                  <tr>
+                      <% Object.keys(file.data[0]).forEach(key => { %>
+                          <th><%= key %></th>
+                      <% }); %>
+                  </tr>
+              </thead>
+              <tbody id="tableBody" class="table-info">
+                <% file.data.forEach((row, index) => { %>
+                    <tr id="row<%= index %>">
+                        <% Object.values(row).forEach(value => { %>
+                            <td><%= value %></td>
+                        <% }); %>
+                    </tr>
+                <% }); %>
+            </tbody>
+          </table>
+      </div>
+  </section>
+  <!-- Pagination -->
+<div class="pagination-container d-flex justify-content-center">
+  <ul class="pagination">
+      <li class="page-item" id="prevPage">
+          <a class="page-link" href="#" aria-label="Previous">
+              Previous
+          </a>
+      </li>
+      <% for(let i = 1; i <= Math.ceil(file.data.length / 100); i++) { %>
+          <li class="page-item">
+              <a class="page-link" href="#" data-page="<%= i %>"><%= i %></a>
+          </li>
+      <% } %>
+      <li class="page-item" id="nextPage">
+          <a class="page-link" href="#" aria-label="Next">
+              Next
+          </a>
+      </li>
+  </ul>
+</div>
+
+<script>
+   document.getElementById("searchInput").addEventListener("keyup", function() {
+        const value = this.value.toLowerCase();
+        const rows = document.querySelectorAll("#tableBody tr");
+        rows.forEach(row => {
+            let found = false;
+            row.querySelectorAll("td").forEach(cell => {
+                if (cell.textContent.toLowerCase().includes(value)) {
+                    found = true;
+                }
+            });
+            row.style.display = found ? "" : "none";
+        });
+    });
+    let currentPage = 1;
+
+// Initial page load
+showPage(currentPage);
+
+// Pagination links
+document.querySelectorAll(".pagination-container .page-link").forEach(link => {
+  link.addEventListener("click", function(event) {
+    event.preventDefault();
+    const page = parseInt(this.getAttribute("data-page"));
+    currentPage = page;
+    showPage(currentPage);
+  });
+});
+
+// Previous page
+document.getElementById("prevPage").addEventListener("click", function(event) {
+  event.preventDefault();
+  if (currentPage > 1) {
+    currentPage--;
+    showPage(currentPage);
+  }
+});
+
+// Next page
+document.getElementById("nextPage").addEventListener("click", function(event) {
+  event.preventDefault();
+  const totalPages = document.querySelectorAll(".pagination-container .page-link").length;
+  if (currentPage < totalPages) {
+    currentPage++;
+    showPage(currentPage);
+  }
+});
+
+function showPage(page) {
+  const rows = document.querySelectorAll("#tableBody tr");
+  const totalPages = Math.ceil(rows.length / 100);
+  
+  // Update active page link
+  document.querySelectorAll(".pagination-container .page-item").forEach(item => {
+    item.classList.remove("active");
+  });
+  document.querySelector(`.pagination-container .page-link[data-page="${page}"]`).parentNode.classList.add("active");
+
+  // Update Previous and Next buttons
+  document.getElementById("prevPage").style.display = page === 1 ? "none" : "";
+  document.getElementById("nextPage").style.display = page === totalPages ? "none" : "";
+
+  const startIndex = (page - 1) * 100;
+  const endIndex = startIndex + 100;
+  rows.forEach((row, index) => {
+    if (index >= startIndex && index < endIndex) {
+      row.style.display = "";
+    } else {
+      row.style.display = "none";
+    }
+  });
+}
+</script>
