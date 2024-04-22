@@ -1,5 +1,6 @@
 import { CSVModel } from "./Csv.Schema.js";
 
+// To create a new File in DataBase
 export const create = async(file,results)=>{
     try {
         const newFile = new CSVModel({
@@ -17,6 +18,7 @@ export const create = async(file,results)=>{
     }
     
 }
+// To get all files in The DataBase
 export const getAll = async ()=>{
     // console.log('Fetching all files...');
     const files = await CSVModel.find({});

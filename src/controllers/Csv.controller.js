@@ -22,7 +22,7 @@ export default class CsvController{
 
     const results = [];
     const filePath = req.file.path;
-
+// Parse Csv using csv-parser
     fs.createReadStream(filePath)
         .pipe(csvParser())
         .on('data', (data) => results.push(data))
@@ -41,6 +41,7 @@ export default class CsvController{
         });
         
     }
+    // get details
     async getDetails(req,res,next){
         try {
             const fileId = req.params.id;

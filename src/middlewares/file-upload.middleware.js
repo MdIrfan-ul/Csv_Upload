@@ -13,6 +13,7 @@ const storageConfig = multer.diskStorage({
 
 export const uploadFile = multer({storage:storageConfig,fileFilter: function (req, file, callback) {
     const ext = path.extname(file.originalname);
+    // backend validation for csv file
     if (ext !== '.csv') {
       return callback(new Error('Only CSV files are allowed'));
     }
