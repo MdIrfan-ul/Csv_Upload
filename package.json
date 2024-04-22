@@ -1,0 +1,29 @@
+{
+  "name": "csv_upload",
+  "version": "1.0.0",
+  "description": "Csv Upload this project uses node.js and mongoDB for storing and rendering the csv files to display the data in the frontend.",
+  "main": "server.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MdIrfan-ul/Csv_Upload.git"
+  },
+  "author": "Mohamed Irfanullah M",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/MdIrfan-ul/Csv_Upload/issues"
+  },
+  "homepage": "https://github.com/MdIrfan-ul/Csv_Upload#readme",
+  "dependencies": {
+    "csv-parser": "^3.0.0",
+    "dotenv": "^16.4.5",
+    "ejs": "^3.1.10",
+    "express": "^4.19.2",
+    "express-ejs-layouts": "^2.5.1",
+    "mongoose": "^8.3.2",
+    "multer": "^1.4.5-lts.1"
+  }
+}
