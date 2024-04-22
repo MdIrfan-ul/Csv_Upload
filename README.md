@@ -21,7 +21,7 @@ This project provides a simple web application to upload CSV files, display the 
 - **File Handling:** Multer
 - **Frontend:** HTML, CSS, JavaScript, EJS
 - **Architecture Pattern:** MVC (Model-View-Controller)
-- **Responsive Design:**Bootstrap
+- **Responsive Design:** Bootstrap
 
 ### Prerequisites
 
