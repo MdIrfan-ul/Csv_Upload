@@ -58,6 +58,6 @@ npm start
 5.Use the search bar to filter the displayed data.
 6.Navigate through pages using the pagination controls to view up to 100 records per page.
 
-##Connect Me
+
 ## ConnectMe 
 [![Linkedin](https://skillicons.dev/icons?i=linkedin)](https://www.linkedin.com/in/mdirfanul/)
