@@ -35,20 +35,32 @@ This project provides a simple web application to upload CSV files, display the 
    git clone https://github.com/your-username/csv-upload-project.git
 
 2. Navigate to the project directory:
+```bash 
 cd csv-upload-project
+```
 
 3. Install dependencies:
+```bash 
 npm install
+```
 
 4. Set up MongoDB:
 - Install MongoDB if not already installed.
 - Start MongoDB service.
 
-5. Create a .env file in the root directory and add the following:
-DB_URI=your_mongodb_connection_string
+5. Set up environment variables:
 
+    Create a `.env` file in the root directory and add the following:
+
+    ```
+    DB_URI=your_mongodb_connection_string
+    PORT=3000
+    ```
 6. Start the application:
-npm start
+```bash
+    npm start
+```
+The application should now be running on `http://localhost:3000`.
 
 ## Usage
 1. Access the application through `http://localhost:3000`.
