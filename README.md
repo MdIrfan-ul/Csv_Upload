@@ -1,4 +1,4 @@
-# Csvupload
+# Csv Upload
 Csv Upload this project uses node.js and mongoDB for storing  and rendering the csv files to display the data in the frontend.
 ## Overview
 This project provides a simple web application to upload CSV files, display the uploaded file on the home page, and view the file data in a table format. It supports filtering the data by search and implements pagination for detailed viewing. The project is built using the MVC architecture pattern and utilizes MongoDB as the database. Multer middleware is used to handle file uploads and store them locally in the Express app. Validation for uploading CSV files is implemented both on the frontend and backend. EJS templates are used for rendering layouts.
