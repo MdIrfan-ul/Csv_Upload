@@ -32,7 +32,7 @@ This project provides a simple web application to upload CSV files, display the 
 ### Installation and Setup
 1. Clone the repository:
    ```bash
-   git clone https://github.com/your-username/csv-upload-project.git
+   git clone https://github.com/MdIrfan-ul/Csv_Upload.git
 
 2. Navigate to the project directory:
 ```bash 
